@@ -1,0 +1,9 @@
+Build.PL
+Makefile.PL
+Changes
+README
+MANIFEST
+lib/Parse/CVSEntries.pm
+lib/Parse/CVSEntry.pm
+t/empty_entries
+t/parse.t
