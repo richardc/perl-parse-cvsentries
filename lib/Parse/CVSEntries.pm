@@ -1,6 +1,7 @@
 use strict;
 package Parse::CVSEntries;
-our $VERSION = '0.03';
+use vars qw( $VERSION );
+$VERSION = '0.03';
 
 =head1 NAME
 
@@ -77,6 +78,7 @@ C<modified> as epoch seconds
 =cut
 
 package Parse::CVSEntry;
+use Class::Accessor::Fast;
 use base 'Class::Accessor::Fast';
 use Date::Parse qw( str2time );
 
