@@ -17,6 +17,15 @@ Parse::CVSEntries - parse a CVS/Entries file
 
 =cut
 
+=head1 METHODS
+
+=head2 new( $file )
+
+Opens a file and parses it invoking C<< entry_class->new >> to
+actually prepare the data.
+
+=cut
+
 sub new {
     my $class    = shift;
     my $filename = shift;
@@ -25,14 +34,39 @@ sub new {
     bless \@entries, $class;
 }
 
+=head2 entries
+
+Returns a list of all the entries in the parsed file.
+
+=cut
+
 sub entries {
-    @{ shift() }
+    @{ $_[0] }
 }
+
+=head2 entry_class
+
+What class to instantiate for each entry.  Defaults to C<Parse::CVSEntry>
+
+=cut
 
 sub entry_class {
     'Parse::CVSEntry';
 }
 
+=head1 Parse::CVSEntry
+
+A representation of an entry in the entries file.
+
+=head2 dir
+
+=head2 name
+
+=head2 version
+
+=head2 modified
+
+=cut
 
 package Parse::CVSEntry;
 use base 'Class::Accessor::Fast';
@@ -40,7 +74,7 @@ use Date::Parse qw( str2time );
 
 # the actual fields in the file
 my @fields = qw( dir name version modified bar baz );
-__PACKAGE__->mk_accessors( @fields, 'mtime' );
+__PACKAGE__->mk_accessors( @fields );
 
 sub new {
     my $class = shift;
@@ -48,9 +82,6 @@ sub new {
 
     my %self;
     @self{ @fields } = split /\//, $_;
-    $self{mtime} = str2time $self{modified}, "UTC"
-      unless $self{dir};
-
     $class->SUPER::new(\%self);
 }
 
