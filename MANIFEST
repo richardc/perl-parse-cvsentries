@@ -6,4 +6,5 @@ README
 MANIFEST
 lib/Parse/CVSEntries.pm
 t/empty_entries
+t/module_build_entries
 t/parse.t

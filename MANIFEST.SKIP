@@ -1,9 +1,10 @@
 MANIFEST.SKIP
 .cvsignore
 \.svn
-blib/
+^blib/
 ^Makefile$
-pm_to_blib
-_build
+^pm_to_blib$
+^_build/
 ^Build$
 ~$
+\.tar\.gz$
