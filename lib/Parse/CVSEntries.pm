@@ -58,6 +58,10 @@ sub entry_class {
 
 A representation of an entry in the entries file.
 
+=head1 METHODS
+
+All of these are just simple data accessors.
+
 =head2 dir
 
 =head2 name
