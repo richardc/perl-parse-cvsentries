@@ -1,3 +1,6 @@
+0.03	Thursday 11th September, 2003
+	->mtime accessor
+
 0.02	Thursday 26th June, 2003
 	Fixed MANIFEST to include module_build_entries
 

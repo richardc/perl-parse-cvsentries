@@ -7,6 +7,7 @@ Module::Build
          requires    => {
              'Class::Accessor::Fast' => 0,
              'Test::More' => 0,
+             'Date::Parse' => 0,
          },
          create_makefile_pl => 'traditional',
         )
